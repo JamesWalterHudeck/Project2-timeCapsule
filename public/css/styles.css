@@ -133,6 +133,17 @@ table {
   border-spacing: 0;
 }
 
+input {
+  background-color: #fff !important;
+  color: #ff5f6d;
+  padding: 12px 24px;
+  margin: 12px auto;
+  display: block;
+  font-size: 18px;
+  -webkit-appearance: none;
+  border: none;
+}
+
 body {
   position: relative;
   font-family: "Raleway", sans-serif;
@@ -163,7 +174,7 @@ body {
 }
 
 .intro__content h1 {
-  font-size: 140px;
+  font-size: 120px;
   font-weight: 700;
   color: #fff;
   margin-bottom: 24px;
@@ -247,7 +258,7 @@ body {
       -ms-flex-pack: center;
           justify-content: center;
   padding: 40px;
-  margin: auto;
+  margin: 80px auto;
   max-width: 80%;
 }
 
@@ -289,6 +300,7 @@ body {
       -ms-flex-pack: center;
           justify-content: center;
   margin: 0 auto;
+  padding: 40px 0;
 }
 
 .seel p {
@@ -297,8 +309,9 @@ body {
 }
 
 .seel img {
-  max-height: 250px;
+  max-height: 150px;
   width: auto;
   text-align: center;
+  margin: 0 100px;
 }
 /*# sourceMappingURL=styles.css.map */

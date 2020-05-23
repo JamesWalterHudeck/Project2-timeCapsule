@@ -1,2 +1,13 @@
 @import "_reset";
+input {
+    background-color: #fff !important;
+    color: #ff5f6d;
+    padding: 12px 24px;
+    margin: 12px auto;
+    display: block;
+    font-size: 18px;
+    -webkit-appearance: none;
+    border: none;
+}
+
 @import "_home";
