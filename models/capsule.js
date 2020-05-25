@@ -8,11 +8,11 @@ module.exports = function(sequelize, DataTypes) {
             }
         },
         sealedTime: {
-            type: DataTypes.DATETIME,
+            type: DataTypes.TIME,
             allowNull: false
         },
         openTime: {
-            type: DataTypes.DATE,
+            type: DataTypes.TIME,
             allowNull: false
         },
         capsuleCode: {
