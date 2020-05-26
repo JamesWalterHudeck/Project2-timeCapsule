@@ -26,6 +26,10 @@ module.exports = function(app) {
         res.render("capsule");
     });
 
+    app.get("/capsuleBuilder", function(req, res) {
+        res.render("capsuleBuilder");
+    });
+
     // blog route loads blog.html
     // app.get("/blog", function(req, res) {
     //     res.sendFile(path.join(__dirname, "../public/blog.html"));
