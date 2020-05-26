@@ -148,7 +148,7 @@ input {
   padding: 12px 44px;
   margin: 12px;
   display: block;
-  background: #ffc371;
+  background: #ff966f;
   border: none;
   font-size: 18px;
   font-weight: 700;
@@ -331,7 +331,7 @@ body {
 }
 
 .existing-capsules h2 {
-  background: #ff5f6d;
+  background: linear-gradient(130deg, #ff5f6d 0%, #ffc371 100%);
   color: #fff;
   text-align: center;
   font-size: 40px;
@@ -356,5 +356,13 @@ body {
 
 .existing-capsules li .btn-group {
   float: right;
+}
+
+.new-capsules h2 {
+  background: linear-gradient(130deg, #ff5f6d 0%, #ffc371 100%);
+  color: #fff;
+  text-align: center;
+  font-size: 40px;
+  padding: 12px;
 }
 /*# sourceMappingURL=styles.css.map */
