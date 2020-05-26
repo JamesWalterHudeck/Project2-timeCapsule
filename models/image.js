@@ -1,15 +1,15 @@
 module.exports = function(sequelize, Datatypes) {
-    var Image = sequelize.define("Image", {
-        imageName: Datatypes.DATA
+    var image = sequelize.define("Image", {
+        imageName: Datatypes.STRING
     });
 
-Image.associate = function(models) {
-    Image.belongsTo(models.Capsule, {
-        foreignKey: {
-            allowNull: false
-        }
-    });
-};
+    image.associate = function(models) {
+        image.belongsTo(models.Capsule, {
+            foreignKey: {
+                allowNull: false
+            }
+        });
+    };
 
-    return Image;
+    return image;
 };
