@@ -1,0 +1,25 @@
+.existing-capsules {
+    h2 {
+        background: rgba(255, 95, 109, 1);
+        color: #fff;
+        text-align: center;
+        font-size: 40px;
+        padding: 12px;
+    }
+    ul {
+        max-width: 80%;
+        margin: 0 auto;
+    }
+    li {
+        margin: 20px 0;
+        border-bottom: 1px solid;
+        h3 {
+            display: inline-block;
+            font-size: 24px;
+            padding: 18px 0;
+        }
+        .btn-group {
+            float: right;
+        }
+    }
+}

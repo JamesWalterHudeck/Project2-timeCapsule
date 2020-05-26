@@ -18,9 +18,12 @@ module.exports = function(app) {
         res.render("index");
     });
 
-    //cms route loads cms.html
     app.get("/login", function(req, res) {
         res.render("login");
+    });
+
+    app.get("/capsule", function(req, res) {
+        res.render("capsule");
     });
 
     // blog route loads blog.html
@@ -31,5 +34,4 @@ module.exports = function(app) {
     // app.get("/authors", function(req, res) {
     //     res.sendFile(path.join(__dirname, "../public/author-manager.html"));
     // });
-
 };

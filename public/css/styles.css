@@ -144,6 +144,21 @@ input {
   border: none;
 }
 
+.btn-color {
+  padding: 12px 44px;
+  margin: 12px;
+  display: block;
+  background: #ffc371;
+  border: none;
+  font-size: 18px;
+  font-weight: 700;
+  color: #000;
+}
+
+.btn-color:hover {
+  cursor: pointer;
+}
+
 body {
   position: relative;
   font-family: "Raleway", sans-serif;
@@ -313,5 +328,33 @@ body {
   width: auto;
   text-align: center;
   margin: 0 100px;
+}
+
+.existing-capsules h2 {
+  background: #ff5f6d;
+  color: #fff;
+  text-align: center;
+  font-size: 40px;
+  padding: 12px;
+}
+
+.existing-capsules ul {
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+.existing-capsules li {
+  margin: 20px 0;
+  border-bottom: 1px solid;
+}
+
+.existing-capsules li h3 {
+  display: inline-block;
+  font-size: 24px;
+  padding: 18px 0;
+}
+
+.existing-capsules li .btn-group {
+  float: right;
 }
 /*# sourceMappingURL=styles.css.map */

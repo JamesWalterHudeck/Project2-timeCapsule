@@ -10,4 +10,19 @@ input {
     border: none;
 }
 
+.btn-color {
+    padding: 12px 44px;
+    margin: 12px;
+    display: block;
+    background: #ffc371;
+    border: none;
+    font-size: 18px;
+    font-weight: 700;
+    color: #000;
+    &:hover {
+        cursor: pointer;
+    }
+}
+
 @import "_home";
+@import "_capsule";
