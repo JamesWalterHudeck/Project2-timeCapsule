@@ -5,14 +5,14 @@
             <label for="capName">Capsule Name</label>
             <input id="capName" type="text" placeholder="Capsule Name">
         </form>
+
+    </section>
+    <section class="addFiles">
+        <h2>Add some files to your Capsule!</h2>
         <form action="/api/files" enctype="multipart/form-data" method="POST">
             <input type="file" name="myFile" />
             <input type="submit" value="Upload a file" />
         </form>
-    </section>
-    <section class="addFiles">
-        <h2>Add some files to your Capsule!</h2>
-        <button id="addFileBtn" class="addFileBtn btn-color">Add a file</button>
     </section>
 
     <section id="capsuleAssets" class="">
@@ -40,9 +40,11 @@
 
     <section id="favoriteMovies">
         <h2>Favorite Movies</h2>
+        <p>Add your favorite movies here</p>
     </section>
 
     <section id="datePicker">
+        <h2>Select the date and time your time capsule can be opened.</h2>
         <div style="overflow:hidden;">
             <div class="form-group">
                 <div class="row">

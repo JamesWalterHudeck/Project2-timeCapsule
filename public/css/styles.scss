@@ -1,29 +1,5 @@
 @import "_reset";
-.clear-input {
-    background-color: #fff !important;
-    color: #ff5f6d;
-    padding: 12px 24px;
-    margin: 12px auto;
-    display: block;
-    font-size: 18px;
-    -webkit-appearance: none;
-    border: none;
-}
-
-.btn-color {
-    padding: 12px 44px;
-    margin: 12px;
-    display: block;
-    background: #ff966f;
-    border: none;
-    font-size: 18px;
-    font-weight: 700;
-    color: #000;
-    &:hover {
-        cursor: pointer;
-    }
-}
-
+@import "_patterns";
 @import "_home";
 @import "_capsule";
 @import "_capsuleBuilder";
