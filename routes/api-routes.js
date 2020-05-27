@@ -1,81 +1,108 @@
-// var db = require("../models");
-
-// module.exports = function(app) {
-//   app.get(
-
-//   app.get(
-
-//   app.post(
-
-//   app.delete(
-
-// };
-
-// *********************************************************************************
-// api-routes.js - this file offers a set of routes for displaying and saving data to the db
-// *********************************************************************************
-
-// Dependencies
-// =============================================================
-
-// Requiring our models
 var db = require("../models");
+var multer = require('multer');
+var upload = multer({ dest: 'uploads/' });
 
-// Routes
-// =============================================================
 module.exports = function(app) {
-
-    //CREATE READ UPDATE DELETE
-
-    // GET route for getting all of the posts
-    // GET = FIND = READ
-    app.get("/api/table", function(req, res) {
-        var query = {};
-        if (req.query.author_id) {
-            query.AuthorId = req.query.author_id;
-        }
-        db.Post.findAll({
-            where: query
-        }).then(function(dbPost) {
-            res.json(dbPost);
-        });
-    });
-
-    // POST route for saving a new post
     //POST = ADD = CREATE
-    app.post("/api/posts", function(req, res) {
-        db.Post.create(req.body).then(function(dbPost) {
-            res.json(dbPost);
-        });
-    });
-    app.post("/api/files", function(req, res) {
-        db.Post.create(req.body).then(function(dbPost) {
-            res.json(dbPost);
+    // =============================================================
+
+    //ADD CAPSULES
+    app.post("/api/capsules", function(req, res) {
+        db.Capsule.create(req.body).then(function(dbCapsule) {
+            res.json(dbCapsule);
         });
     });
 
-    // DELETE route for deleting posts
-    // DELETE = DELETE
-    app.delete("/api/posts/:id", function(req, res) {
-        db.Post.destroy({
+    //ADD FILES
+    app.post('/api/files', upload.single('myFile'), function(req, res, next) {
+        console.log(req.file);
+    })
+
+    //ADD USERS
+    app.post("/api/users", function(req, res) {
+        db.Author.create(req.body).then(function(dbUser) {
+            res.json(dbUser);
+        });
+    });
+
+    // GET = FIND = READ
+    // =============================================================
+
+    //FIND CAPSULES - DONT THINK WE WILL NEED THIS
+    app.get("/api/capsules", function(req, res) {
+        var query = {};
+        if (req.query.user_id) {
+            query.UserId = req.query.user_id;
+        }
+
+        db.Post.findAll({
+            where: query,
+            include: [db.User]
+        }).then(function(dbCapsule) {
+            res.json(dbCapsule);
+        });
+    });
+
+    //FIND SPECIFIC CAPSULE
+    app.get("/api/capsules/:id", function(req, res) {
+
+        db.Capsule.findOne({
+            where: {
+                id: req.params.id
+            },
+            include: [db.file]
+        }).then(function(dbCapsule) {
+            res.json(dbCapsule);
+        });
+    });
+
+    //FIND SPECIFIC USER
+    app.get("/api/users/:id", function(req, res) {
+        db.User.findOne({
+            where: {
+                id: req.params.id
+            },
+            include: [db.Capsule]
+        }).then(function(dbUser) {
+            res.json(dbUser);
+        });
+    });
+
+    // PUT = UPDATE
+    // =============================================================
+
+    //UPDATE SPECIFIC CAPSULE
+    app.put("/api/capsules/:id", function(req, res) {
+        db.Capsule.update({
             where: {
                 id: req.params.id
             }
-        }).then(function(dbPost) {
-            res.json(dbPost);
+        }).then(function(dbCapsule) {
+            res.json(dbCapsule);
         });
     });
 
-    // PUT route for updating posts
-    // PUT = UPDATE
-    app.put("/api/posts", function(req, res) {
-        db.Post.update(
-            req.body, {
-                where: {
-                    id: req.body.id
-                }
-            }).then(function(dbPost) {
-            res.json(dbPost);
+    // DELETE = DELETE
+    // =============================================================
+
+    //DELETE SPECIFIC CAPSULE
+    app.delete("/api/capsules/:id", function(req, res) {
+        db.Capsule.destroy({
+            where: {
+                id: req.params.id
+            }
+        }).then(function(dbCapsule) {
+            res.json(dbCapsule);
+        });
+    });
+    //DELETE SPECIFIC USER
+    app.delete("api.users/:id", function(req, res) {
+        db.User.destroy({
+            where: {
+                id: req.params.id
+            }
+        }).then(function(dbUser) {
+            res.json(dbUser);
         });
     });
 };
