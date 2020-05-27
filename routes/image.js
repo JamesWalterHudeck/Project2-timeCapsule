@@ -1,51 +1,30 @@
 var db = require("../models");
+var multer = require('multer');
+var upload = multer({ dest: 'uploads/' });
 
 module.exports = function(app) {
 
-    // Create a new Image
-    app.post("/api/images", function(req, res) {
-        db.Image.create(req.body).then(function(dbImage) {
-        res.json(dbImage);
-        });
-    });
+    app.post('/api/files', upload.single('myFile'), function(req, res, next) {
+        console.log(req.file);
+        // req.file is the `avatar` file
+        // req.body will hold the text fields, if there were any
+    })
 
-    // Read all images - left outer joined to capsule
-    app.get("/api/images", function(req, res) {
-        var query = {};
-        if (req.query.user_id) {
-        query.Capsule = req.query.capsule_id;
-        }
-        
-        db.Post.findAll({
-        where: query,
-        include: [db.Capsule]
-        }).then(function(dbImage) {
-        res.json(dbImage);
-        });
-    });
+    // app.post('/api/filez', upload.array('photos', 12), function(req, res, next) {
+    //     console.log(req);
+    //     // req.files is array of `photos` files
+    //     // req.body will contain the text fields, if there were any
+    // })
 
-    // Update Image
-    app.put("/api/images", function(req, res) {
-        db.Image.update(
-        req.body,
-        {
-            where: {
-            id: req.body.id
-            }
-        }).then(function(dbImage) {
-        res.json(dbImage);
-        });
-    });
-    
-    //Delete Image
-    app.delete("/api/images/:id", function(req, res) {
-        db.Image.destroy({
-          where: {
-            id: req.params.id
-          }
-        }).then(function(dbImage) {
-          res.json(dbImage);
-        });
-      });
+    // var cpUpload = upload.fields([{ name: 'avatar', maxCount: 1 }, { name: 'gallery', maxCount: 8 }])
+    // app.post('/cool-profile', cpUpload, function(req, res, next) {
+    //     // req.files is an object (String -> Array) where fieldname is the key, and the value is array of files
+    //     //
+    //     // e.g.
+    //     //  req.files['avatar'][0] -> File
+    //     //  req.files['gallery'] -> Array
+    //     //
+    //     // req.body will contain the text fields, if there were any
+    // })
 
 };

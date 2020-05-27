@@ -5,6 +5,10 @@
             <label for="capName">Capsule Name</label>
             <input id="capName" type="text" placeholder="Capsule Name">
         </form>
+        <form action="/api/files" enctype="multipart/form-data" method="POST">
+            <input type="file" name="myFile" />
+            <input type="submit" value="Upload a file" />
+        </form>
     </section>
     <section class="addFiles">
         <h2>Add some files to your Capsule!</h2>

@@ -48,6 +48,11 @@ module.exports = function(app) {
             res.json(dbPost);
         });
     });
+    app.post("/api/files", function(req, res) {
+        db.Post.create(req.body).then(function(dbPost) {
+            res.json(dbPost);
+        });
+    });
 
     // DELETE route for deleting posts
     // DELETE = DELETE
