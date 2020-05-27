@@ -1,3 +1,8 @@
 $(document).ready(function() {
-    console.log("ready!");
+    $(function() {
+        $('#datetimepicker12').datetimepicker({
+            inline: true,
+            sideBySide: true
+        });
+    });
 });
