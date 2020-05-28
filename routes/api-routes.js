@@ -1,7 +1,9 @@
-let db = require("../models");
-let multer = require('multer');
-let upload = multer({ dest: 'uploads/' });
+var db = require("../models");
+var multer = require('multer');
+var upload = multer({ dest: 'uploads/' });
 const axios = require("axios");
+var uploadController = require("./upload")
+
 
 module.exports = function (app) {
     //POST = ADD = CREATE
@@ -15,9 +17,7 @@ module.exports = function (app) {
     });
 
     //ADD FILES
-    app.post('/api/files', upload.single('myFile'), function (req, res, next) {
-        console.log(req.file);
-    })
+    app.post('/api/files/v2', upload.single('myFile'), uploadController);
 
     //ADD USERS
     app.post("/api/users", function (req, res) {

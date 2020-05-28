@@ -449,18 +449,18 @@ a:hover {
   font-weight: 700;
 }
 
-.capsuleBuilder input[type=text] {
+.capsuleBuilder input[type="text"] {
   font-size: 2.2rem;
-  padding: .7rem 2rem;
+  padding: 0.7rem 2rem;
   border: 1px solid #5335fa;
   color: #505050;
 }
 
-.capsuleBuilder input[type=text]::-webkit-input-placeholder {
+.capsuleBuilder input[type="text"]::-webkit-input-placeholder {
   color: #ccc;
 }
 
-.capsuleBuilder input[type=file] {
+.capsuleBuilder input[type="file"] {
   font-size: 1.8rem;
   padding: 0;
   border: 1px solid #5335fa;
@@ -469,11 +469,11 @@ a:hover {
 }
 
 .capsuleBuilder button,
-.capsuleBuilder input[type=submit] {
+.capsuleBuilder input[type="submit"] {
   background: #5335fa;
   color: #fff;
   font-size: 2.2rem;
-  padding: .7rem 2rem;
+  padding: 0.7rem 2rem;
   border: 1px solid #5335fa;
 }
 
@@ -525,7 +525,7 @@ a:hover {
 }
 
 #favoriteMovies {
-  margin: 20rem auto 0;
+  margin: 10rem auto 0;
   max-width: 90%;
 }
 

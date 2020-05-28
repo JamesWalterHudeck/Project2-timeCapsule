@@ -13,8 +13,7 @@
             <section class="builderIntro-copy">
                 <h2>Let's get started!</h2>
                 <p>Add items to your time capsule that you want to keep a record of, chare with loved ones, or have a
-                    good
-                    laugh later.</p>
+                    good laugh later.</p>
             </section>
             <section class="builderIntro-form">
                 <form action="">
@@ -22,7 +21,7 @@
                     <input id="capName" type="text">
                 </form>
 
-                <form action="/api/files" enctype="multipart/form-data" method="POST">
+                <form action="/api/files/v2" enctype="multipart/form-data" method="POST">
                     <label>Add some files to your Capsule</label>
                     <input id="upload" type="file" name="myFile" />
                     <input type="submit" value="Upload a file" />
