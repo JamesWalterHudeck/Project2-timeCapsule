@@ -1,3 +1,12 @@
+<nav class="header-nav">
+    <ul>
+        <li><a href="/" class="nav-item logo">Time Capsule</a></li>
+        <li><a href="#" class="nav-item">My Account</a></li>
+        <li><a href="capsule" class="nav-item">My Capsules</a></li>
+        <li><a href="#" class="nav-item">Logout</a></li>
+    </ul>
+</nav>
+
 <section class="existing-capsules">
     <h2>Continue working on your existing Time Capsules!</h2>
 
@@ -5,25 +14,25 @@
         <li>
             <h3>Erika's Test Capsule Name</h3>
             <div class="btn-group">
-                <button class="btn-color">Edit</button>
-                <button class="btn-color">Delete</button>
-                <button class="btn-color">Seel</button>
+                <button class="btns">Edit</button>
+                <button class="btns">Delete</button>
+                <button class="btns">Seel</button>
             </div>
         </li>
         <li>
             <h3>Josh's Test Capsule Name</h3>
             <div class="btn-group">
-                <button class="btn-color">Edit</button>
-                <button class="btn-color">Delete</button>
-                <button class="btn-color">Seel</button>
+                <button class="btns">Edit</button>
+                <button class="btns">Delete</button>
+                <button class="btns">Seel</button>
             </div>
         </li>
         <li>
             <h3>James's Test Capsule Name</h3>
             <div class="btn-group">
-                <button class="btn-color">Edit</button>
-                <button class="btn-color">Delete</button>
-                <button class="btn-color">Seel</button>
+                <button class="btns">Edit</button>
+                <button class="btns">Delete</button>
+                <button class="btns">Seel</button>
             </div>
         </li>
     </ul>
@@ -31,6 +40,16 @@
 
 <section class="new-capsules">
     <h2>Start a new capsule!</h2>
-    <button id="startSelfCapsule" class="btn-color" onclick="window.location.href = 'capsuleBuilder';">Start new
-        capsule</button>
+
+    <div class="capOptions">
+        <a class="capType capType-self" href="/capsuleBuilder">
+            <p>For Yourself</p>
+        </a>
+        <a class="capType capType-other" href="#">
+            <p>For Others</p>
+        </a>
+        <a class="capType capType-group" href="#">
+            <p>As a Group</p>
+        </a>
+    </div>
 </section>

@@ -183,37 +183,17 @@ a:hover {
 }
 
 .btns {
-  padding: 12px 44px;
-  margin: 12px;
-  display: block;
-  background: #20bdff;
-  border: none;
-  font-size: 1.8rem;
-  font-weight: 700;
+  background: #5335fa;
   color: #fff;
+  font-size: 2.2rem;
+  padding: 0.7rem 2rem;
+  border: 1px solid #5335fa;
   cursor: pointer;
 }
 
 .btns:hover {
   background: #fff;
-  color: #20bdff;
-}
-
-.btns-reverse {
-  padding: 12px 44px;
-  margin: 12px;
-  display: block;
-  background: #fff;
-  border: 1px solid #20bdff;
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: #20bdff;
-  cursor: pointer;
-}
-
-.btns-reverse:hover {
-  background: #20bdff;
-  color: #fff;
+  color: #5335fa;
 }
 
 .header-nav {
@@ -271,16 +251,23 @@ a:hover {
   margin-bottom: 24px;
 }
 
-.btn-clear {
-  padding: 12px 24px;
-  margin: 12px auto;
+.intro__content .btns {
+  min-width: 250px;
   display: block;
-  background: #fff;
-  border: none;
-  font-size: 22px;
-  font-weight: 700;
-  color: #20bdff;
-  min-width: 350px;
+  margin: 2rem auto;
+}
+
+.intro__content input[type="text"],
+.intro__content input[type="password"] {
+  font-size: 2.2rem;
+  padding: 0.7rem 2rem;
+  border: 1px solid #5335fa;
+  color: #505050;
+}
+
+.intro__content input[type="text"]::-webkit-input-placeholder,
+.intro__content input[type="password"]::-webkit-input-placeholder {
+  color: #ccc;
 }
 
 .people {
@@ -404,13 +391,14 @@ a:hover {
   background: linear-gradient(145deg, #5433ff, #20bdff, #a5fecb);
   color: #fff;
   text-align: center;
-  font-size: 40px;
-  padding: 12px;
+  font-size: 4.8rem;
+  padding: 2rem;
 }
 
 .existing-capsules ul {
   max-width: 80%;
   margin: 0 auto;
+  padding: 5rem 0;
 }
 
 .existing-capsules li {
@@ -420,7 +408,7 @@ a:hover {
 
 .existing-capsules li h3 {
   display: inline-block;
-  font-size: 24px;
+  font-size: 2.8rem;
   padding: 18px 0;
 }
 
@@ -428,12 +416,71 @@ a:hover {
   float: right;
 }
 
-.new-capsules h2 {
+.existing-capsules li .btn-group .btns {
+  margin: 0 1rem;
+}
+
+.new-capsules {
   background: linear-gradient(145deg, #5433ff, #20bdff, #a5fecb);
+  padding: 0 5%;
+}
+
+.new-capsules h2 {
   color: #fff;
   text-align: center;
-  font-size: 40px;
-  padding: 12px;
+  font-size: 4.8rem;
+  padding: 2rem;
+}
+
+.new-capsules .capOptions {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+}
+
+.new-capsules .capType {
+  display: block;
+  width: 33%;
+  min-height: 400px;
+  position: relative;
+  margin: 3%;
+  border: 3px solid #000;
+  -webkit-box-shadow: -20px -20px #fff;
+          box-shadow: -20px -20px #fff;
+}
+
+.new-capsules .capType p {
+  font-size: 4rem;
+  color: #fff;
+  font-weight: 700;
+  white-space: nowrap;
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  margin-left: -30%;
+  text-shadow: 6px 3px 5px #000;
+}
+
+.new-capsules .capType-self {
+  background: url(../assets/self.jpg);
+  background-size: cover;
+}
+
+.new-capsules .capType-other {
+  background: url(../assets/other.jpg);
+  background-size: cover;
+}
+
+.new-capsules .capType-group {
+  background: url(../assets/group.jpg);
+  background-size: cover;
 }
 
 .capsuleBuilder .gradBg {

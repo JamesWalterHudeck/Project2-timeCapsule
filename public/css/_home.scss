@@ -23,18 +23,21 @@
         color: #fff;
         margin-bottom: 24px;
     }
-}
-
-.btn-clear {
-    padding: 12px 24px;
-    margin: 12px auto;
-    display: block;
-    background: #fff;
-    border: none;
-    font-size: 22px;
-    font-weight: 700;
-    color: #20bdff;
-    min-width: 350px;
+    .btns {
+        min-width: 250px;
+        display: block;
+        margin: 2rem auto;
+    }
+    input[type="text"],
+    input[type="password"] {
+        font-size: 2.2rem;
+        padding: 0.7rem 2rem;
+        border: 1px solid $blue-dark;
+        color: $gray-dark;
+        &::-webkit-input-placeholder {
+            color: #ccc;
+        }
+    }
 }
 
 .people {
