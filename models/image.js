@@ -1,15 +1,15 @@
-module.exports = function(sequelize, Datatypes) {
-    var image = sequelize.define("Image", {
-        imageName: Datatypes.STRING
+module.exports = (sequelize, DataTypes) => {
+    const Image = sequelize.define("Image", {
+        type: {
+            type: DataTypes.STRING,
+        },
+        name: {
+            type: DataTypes.STRING,
+        },
+        data: {
+            type: DataTypes.BLOB("long"),
+        },
     });
 
-    image.associate = function(models) {
-        image.belongsTo(models.Capsule, {
-            foreignKey: {
-                allowNull: false
-            }
-        });
-    };
-
-    return image;
+    return Image;
 };

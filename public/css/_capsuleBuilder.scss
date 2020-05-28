@@ -10,16 +10,16 @@
         padding: 0 0 1rem;
         font-weight: 700;
     }
-    input[type=text] {
+    input[type="text"] {
         font-size: 2.2rem;
-        padding: .7rem 2rem;
+        padding: 0.7rem 2rem;
         border: 1px solid $blue-dark;
         color: $gray-dark;
         &::-webkit-input-placeholder {
             color: #ccc;
         }
     }
-    input[type=file] {
+    input[type="file"] {
         font-size: 1.8rem;
         padding: 0;
         border: 1px solid $blue-dark;
@@ -27,11 +27,11 @@
         width: 60%;
     }
     button,
-    input[type=submit] {
+    input[type="submit"] {
         background: $blue-dark;
         color: #fff;
         font-size: 2.2rem;
-        padding: .7rem 2rem;
+        padding: 0.7rem 2rem;
         border: 1px solid $blue-dark;
     }
     h2 {
@@ -71,7 +71,7 @@
 }
 
 #favoriteMovies {
-    margin: 20rem auto 0;
+    margin: 10rem auto 0;
     max-width: 90%;
     h2 {
         color: #fff;
