@@ -25,15 +25,30 @@ module.exports = function (app) {
     });
   });
   //Add Movies
+  //   app.post("/api/movies", function (req, res) {
+  //     let movie = req.body.movieInput;
+  //     res.status(200);
+  //     const apiKey = "9b13178f";
+  //     let queryURL = "https://www.omdbapi.com/?t=" + movie + "&apikey=" + apiKey;
+  //     //console.log(queryURL);
+  //     axios.get(queryURL).then(function (res) {
+  //       console.log(res.data.Title);
+  //       console.log(res.data.Poster);
+  //     });
+  //   });
+
   app.post("/api/movies", function (req, res) {
     let movie = req.body.movieInput;
-    res.status(200);
     const apiKey = "9b13178f";
     let queryURL = "https://www.omdbapi.com/?t=" + movie + "&apikey=" + apiKey;
-    //console.log(queryURL);
+
+    console.log(queryURL);
+
     axios.get(queryURL).then(function (res) {
-      console.log(res.data.Title);
-      console.log(res.data.Poster);
+      db.Capsule.create({
+        title: res.data.Title,
+        poster: res.data.Poster,
+      });
     });
   });
 
@@ -76,6 +91,12 @@ module.exports = function (app) {
       include: [db.Capsule],
     }).then(function (dbUser) {
       res.json(dbUser);
+    });
+  });
+
+  app.get("/capsuleBuilder", function (req, res, next) {
+    db.api.findAll({ limit: 10 }).then(function (rows) {
+      res.render("movie-block", { rows: rows });
     });
   });
 
