@@ -20,7 +20,7 @@ module.exports = function (app) {
 
   //ADD USERS
   app.post("/api/users", function (req, res) {
-    db.Author.create(req.body).then(function (dbUser) {
+    db.User.create(req.body).then(function (dbUser) {
       res.json(dbUser);
     });
   });
