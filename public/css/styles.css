@@ -232,6 +232,10 @@ a:hover {
   font-size: 2.2rem;
 }
 
+.nowrap {
+  white-space: nowrap;
+}
+
 .intro {
   background: url("../assets/time-capsule.png"), linear-gradient(145deg, #5433ff, #20bdff, #a5fecb);
   background-repeat: no-repeat;
@@ -521,7 +525,7 @@ a:hover {
 }
 
 #favoriteMovies {
-  margin: 20rem auto;
+  margin: 20rem auto 0;
   max-width: 90%;
 }
 
@@ -548,5 +552,114 @@ a:hover {
 
 #favoriteMovies form input {
   min-width: 410px;
+}
+
+#letter {
+  width: 90%;
+  margin: 5rem auto;
+  overflow: auto;
+}
+
+#letter textarea {
+  width: 100%;
+  margin: 2.5rem 0;
+  font-size: 2.8rem;
+}
+
+#letter button {
+  float: right;
+}
+
+#datePicker {
+  clear: both;
+  background: #dddddd;
+  padding: 5rem 0;
+  margin: 5rem 0;
+}
+
+#datePicker .datePicker-wrap {
+  width: 90%;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#datePicker .dateCopy {
+  width: 40%;
+  -webkit-box-ordinal-group: 3;
+      -ms-flex-order: 2;
+          order: 2;
+}
+
+#datePicker .date {
+  width: 50%;
+  margin-right: 5%;
+}
+
+#datePicker .bootstrap-datetimepicker-widget {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #fff;
+  font-size: 1.8rem;
+  padding: 2.5rem;
+}
+
+#datePicker .bootstrap-datetimepicker-widget table th {
+  padding: 10px;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+#datePicker .bootstrap-datetimepicker-widget table td.day {
+  height: 30px;
+  line-height: 20px;
+  width: 20px;
+  padding: 10px;
+}
+
+#datePicker .bootstrap-datetimepicker-widget table td.active,
+#datePicker .bootstrap-datetimepicker-widget table td.active:hover {
+  background: linear-gradient(145deg, #5433ff, #20bdff, #a5fecb);
+  color: #fff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+}
+
+#datePicker .bootstrap-datetimepicker-widget .timepicker-hour,
+#datePicker .bootstrap-datetimepicker-widget .timepicker-minute,
+#datePicker .bootstrap-datetimepicker-widget .timepicker-second {
+  width: 130px;
+  height: 100px;
+  font-weight: bold;
+  font-size: 10rem;
+  margin: 0;
+  background: linear-gradient(145deg, #5433ff, #20bdff, #a5fecb);
+  padding: 24px 0 0;
+  color: #fff;
+}
+
+#datePicker .separator {
+  font-size: 10rem;
+}
+
+#datePicker .bootstrap-datetimepicker-widget button[data-action] {
+  padding: 6px;
+  position: relative;
+  top: -10px;
+  background: linear-gradient(145deg, #5433ff, #20bdff, #a5fecb);
+  border: none;
+}
+
+#datePicker .timepicker {
+  padding-top: 4.5rem;
+}
+
+#datePicker .bootstrap-datetimepicker-widget table td span.active {
+  background: #5335fa;
 }
 /*# sourceMappingURL=styles.css.map */
