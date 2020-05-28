@@ -59,9 +59,9 @@
         <section id="favoriteMovies">
             <h2>Capture this moment in time, Include your favorite movie posters!</h2>
             <img src="/assets/movies.png" width="100%" alt="">
-            <form action="">
-                <input type="text" placeholder="Movie Name">
-                <button type="submit">Search</button>
+            <form action="/api/movies" method ="post">
+                <input id="movieTitle" name="movieInput" type="text" placeholder="Movie Name">
+                <button id="findMovie" type="submit">Search</button>
             </form>
         </section>
     </div>
