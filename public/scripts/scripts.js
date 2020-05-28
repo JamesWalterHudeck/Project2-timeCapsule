@@ -1,5 +1,3 @@
-import { createPoolCluster } from "mysql";
-
 $(document).ready(function() {
     $(function() {
         $('#datetimepicker12').datetimepicker({
