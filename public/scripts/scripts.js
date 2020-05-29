@@ -6,21 +6,6 @@ $(document).ready(function() {
         });
     });
 
-    // $("#saveAll").on("click", function(e) {
-    //     e.preventDefault();
-    //     var data_array = $("form").map(function() {
-    //         console.log($(this).serializeArray())
-    //         return $(this).serializeArray();
-    //     });
-    //     $.ajax({
-    //         url: 'api/capsuleSave',
-    //         data: data_array,
-    //         success: function(html) {
-
-    //         }
-    //     });
-    // });
-
     var userEmail = $("input#userEmail");
     var userPassword = $("input#userPassword");
     var loginBtn = $("button#accountlogin");
@@ -64,7 +49,8 @@ $(document).ready(function() {
             capsuleCode: 'capsuleKey',
             email: 'email@email.com',
             password: 'password',
-            movies: "movie1",
+            title: "movie1",
+            poster: "movie link",
             UserId: 1
         };
 
