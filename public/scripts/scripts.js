@@ -6,11 +6,12 @@ $(document).ready(function() {
         });
     });
 
+    // New User
     var userEmail = $("input#userEmail");
     var userPassword = $("input#userPassword");
     var loginBtn = $("button#accountlogin");
     var userData = {};
-    // Create and fill new user object for database
+    // Button to Create new user
     $(loginBtn).on("click", function(event) {
         event.preventDefault();
         // Makes user object
@@ -18,7 +19,8 @@ $(document).ready(function() {
         // Makes post request sending object/then redirects to capsule page
         createUser();
     });
-    // Create and fill new user object for database
+
+    // Create and fill new user object
     function newUserObj() {
         userData = {
             email: userEmail.val().trim(),
@@ -40,20 +42,54 @@ $(document).ready(function() {
     };
 
 
-    $("#saveAll").on("click", function(e) {
-        e.preventDefault();
-        var capsule = {
-            capsuleName: 'capsuleName',
-            sealedTime: '09:10:00',
-            openTime: '09:10:00',
-            capsuleCode: 'capsuleKey',
-            email: 'email@email.com',
-            password: 'password',
-            title: "movie1",
-            poster: "movie link",
-            UserId: 1
-        };
+    // $("#saveAll").on("click", function(e) {
+    //     e.preventDefault();
+    //     var capsule = {
+    //         capsuleName: 'capsuleName',
+    //         sealedTime: '09:10:00',
+    //         openTime: '09:10:00',
+    //         capsuleCode: 'capsuleKey',
+    //         email: 'email@email.com',
+    //         password: 'password',
+    //         title: "movie1",
+    //         poster: "movie link",
+    //         UserId: 1
+    //     };
 
-        $.post("api/saveCapsule", capsule);
-    });
+    //     $.post("api/saveCapsule", capsule);
+    // });
+
+// New capsule
+var capsuleName = $("input#capName");
+var sealedTime = Date.now();
+var openTime = $("#datetimepicker12").data('date');
+var capsuleCode = $("input#capsuleKey");
+var capsuleNote = $("textarea#letter");
+var capsuleData = {};
+// Button to create new capsule
+$("#saveAll").on("click", function(event) {
+    event.preventDefault();
+    newCapsuleObj();
+});
+// Create and fill new capsule object
+function newCapsuleObj() {
+    capsuleData = {
+        capsuleName: capsuleName.val().trim(),
+        sealedTime: sealedTime,
+        openTime: openTime,
+        capsuleCode: capsuleCode.val().trim(),
+        note: capsuleNote.val().trim()
+    };
+    console.log(capsuleData);
+    return capsuleData;
+};
+
+
+
+
+
+
+
+
+
 });
