@@ -10,7 +10,7 @@ module.exports = function (app) {
 
   //ADD CAPSULE
 
-  app.put("/api/saveCapsule", function (req, res) {
+  app.post("/api/saveCapsule", function (req, res) {
     console.log(req.body);
     db.Capsule.create(req.body).then(function (dbTodo) {
       // We have access to the new todo as an argument inside of the callback function

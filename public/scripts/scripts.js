@@ -43,27 +43,24 @@ $(document).ready(function() {
 
 // New capsule
 var capsuleName = $("input#capName");
-var sealedTime = Date.now();
 var openTime = $("#datetimepicker12").data('date');
 var capsuleCode = $("input#capsuleKey");
 var capsuleNote = $("textarea#letter");
-var userId;
 var capsuleData = {};
 // Button to create new capsule
 $("#saveAll").on("click", function(event) {
     event.preventDefault();
-    getUserId();
+    newCapsuleObj();
     createCapsule();
 });
 // Create and fill new capsule object
 function newCapsuleObj() {
     capsuleData = {
         capsuleName: capsuleName.val().trim(),
-        // sealedTime: sealedTime,
         openTime: openTime,
         capsuleCode: capsuleCode.val().trim(),
         note: capsuleNote.val().trim(),
-        UserId: userId
+        UserId: 1
     };
     console.log(capsuleData);
     return capsuleData;
@@ -73,14 +70,24 @@ function createCapsule() {
     $.post("api/saveCapsule", capsuleData)
         .then(console.log("capsule creation attempted"));
 };
-// Get user id - sadly hardcoded to the first user
-function getUserId() {
-    $.get("api/users/1", function(data){
-        userId = data.id;
-        console.log(userId);
-        newCapsuleObj();
-        return userId;
-    });
-    }
+
+// Put for capsule sealed time hard coded for 1st capsule in table
+function seelIt(sealedTime) {
+    var sealedTime = Date.now();
+    $.ajax({
+        method: "PUT",
+        url: "api/capsules/1",
+        sealedTime: sealedTime
+      })
+        .then(function() {
+          window.location.href = "capsule";
+        });
+};
+
+// Button to seel created capsule
+$("#seelCapsule").on("click", function(event) {
+    event.preventDefault();
+    seelIt();
+});
 
 });
