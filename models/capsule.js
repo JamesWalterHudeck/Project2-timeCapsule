@@ -9,33 +9,16 @@ module.exports = function(sequelize, DataTypes) {
         },
         sealedTime: {
             type: DataTypes.TIME,
-            allowNull: false,
         },
         openTime: {
-            type: DataTypes.TIME,
-            allowNull: false,
+            type: DataTypes.STRING,
+            allowNull: true,
         },
         capsuleCode: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        email: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            unique: true,
-            validate: {
-                isEmail: true,
-            },
-        },
-        password: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
-        title: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
-        poster: {
+        note: {
             type: DataTypes.STRING,
             allowNull: false,
         },
