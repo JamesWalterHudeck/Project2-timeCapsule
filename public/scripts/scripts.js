@@ -41,55 +41,46 @@ $(document).ready(function() {
         window.location.href = 'capsule';
     };
 
-
-    // $("#saveAll").on("click", function(e) {
-    //     e.preventDefault();
-    //     var capsule = {
-    //         capsuleName: 'capsuleName',
-    //         sealedTime: '09:10:00',
-    //         openTime: '09:10:00',
-    //         capsuleCode: 'capsuleKey',
-    //         email: 'email@email.com',
-    //         password: 'password',
-    //         title: "movie1",
-    //         poster: "movie link",
-    //         UserId: 1
-    //     };
-
-    //     $.post("api/saveCapsule", capsule);
-    // });
-
 // New capsule
 var capsuleName = $("input#capName");
 var sealedTime = Date.now();
 var openTime = $("#datetimepicker12").data('date');
 var capsuleCode = $("input#capsuleKey");
 var capsuleNote = $("textarea#letter");
+var userId;
 var capsuleData = {};
 // Button to create new capsule
 $("#saveAll").on("click", function(event) {
     event.preventDefault();
-    newCapsuleObj();
+    getUserId();
+    createCapsule();
 });
 // Create and fill new capsule object
 function newCapsuleObj() {
     capsuleData = {
         capsuleName: capsuleName.val().trim(),
-        sealedTime: sealedTime,
+        // sealedTime: sealedTime,
         openTime: openTime,
         capsuleCode: capsuleCode.val().trim(),
-        note: capsuleNote.val().trim()
+        note: capsuleNote.val().trim(),
+        UserId: userId
     };
     console.log(capsuleData);
     return capsuleData;
 };
-
-
-
-
-
-
-
-
+// Make a post request to api/capsules with new capsule object
+function createCapsule() {
+    $.post("api/saveCapsule", capsuleData)
+        .then(console.log("capsule creation attempted"));
+};
+// Get user id - sadly hardcoded to the first user
+function getUserId() {
+    $.get("api/users/1", function(data){
+        userId = data.id;
+        console.log(userId);
+        newCapsuleObj();
+        return userId;
+    });
+    }
 
 });
