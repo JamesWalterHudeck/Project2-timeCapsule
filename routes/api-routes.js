@@ -10,7 +10,7 @@ module.exports = function (app) {
 
   //ADD CAPSULE
 
-  app.put("/api/saveCapsule", function (req, res) {
+  app.post("/api/saveCapsule", function (req, res) {
     console.log(req.body);
     db.Capsule.create(req.body).then(function (dbTodo) {
       // We have access to the new todo as an argument inside of the callback function
@@ -29,31 +29,60 @@ module.exports = function (app) {
   });
 
   //Add Movies
+  //post request from html
+  //post request backend
+  //OMDB call
+  //wait for response
+  //send to database
+  //user back to capsuleBuilde html
 
-  function movieDatabase(title, poster) {
-    for (var i = 0; i < title.length; i++) {
-      db.movies.create({ movieTitle: title[i] });
-    }
-    for (var j = 0; i < poster.length; j++) {
-      db.movies.create({ moviePoster: poster[j] });
-    }
-  }
+  app.post("/api/capsules/movies", async function (req, res, next) {
+    try {
+      let movie = req.body.movieInput;
+      const apiKey = "9b13178f";
+      let queryURL =
+        "https://www.omdbapi.com/?t=" + movie + "&apikey=" + apiKey;
+      //console.log("URL: " + queryURL);=
 
-  app.post("/api/capsules/id/:movies", function (req, res) {
-    let resultElement = document.getElementById("getResult");
-    resultElement.innerHTML = "";
-    let movie = req.body.movieInput;
-    const apiKey = "9b13178f";
-    let queryURL = "https://www.omdbapi.com/?t=" + movie + "&apikey=" + apiKey;
-    console.log(queryURL);
-    axios.get(queryURL).then(function (res) {
-      resultElement.innerHTML = generateHTML(res);
-    });
+      const result = await axios.get(queryURL);
+      const movieTitle = result.data.Title;
+      const moviePoster = result.data.Poster;
+      console.log("line50: " + movieTitle);
+      console.log("line51: " + moviePoster);
+      const newMovie = {
+        movieTitle: movieTitle,
+        moviePoster: moviePoster,
+        CapsuleId: 1,
+      };
+      const dbPoster = await db.Movies.create(newMovie);
+      //res.json(dbPoster);
+      res.redirect("/capsuleBuilder");
+    } catch (error) {
+      next(error);
+    }
   });
 
-  function generateHTML(res) {
-    return "<h4>Result</h4>" + "<h5>" + res.data.title + "</h5>";
-  }
+  //app.post("/api/capsules/:id/movies", async function (req, res) {
+
+  //   for(var i = 0; i > 0; i++){
+  //     db.movies.create(movieArray[i]).then(function (dbPoster) {
+  //       res.json(dbPoster);
+  //   })
+  // };
+
+  // await getMovie(req).then(() => {
+  //   app.post("/api/:movies", function (req, res) {
+  //   db.movies.create(res.data.Poster).then(function (dbPoster) {
+  //     res.json(dbPoster);
+  //   });
+
+  //   console.log("app.post: " + movieArray);
+  // });
+  //});
+
+  // moviePoster.push(res.data.Poster);
+  // console.log(moviePoster);
+  // res.json(moviePoster);
 
   // GET = FIND = READ
   // =============================================================
