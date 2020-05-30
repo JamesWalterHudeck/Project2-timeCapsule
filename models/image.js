@@ -10,6 +10,13 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.BLOB("long"),
         },
     });
+    Image.associate = function(models) {
+        Image.belongsTo(models.Capsule, {
+            foreignKey: {
+                allowNull: false,
+            },
+        });
+    };
 
     return Image;
 };

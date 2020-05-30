@@ -194,9 +194,11 @@
 #saveOrSeel {
     width: 90%;
     margin: 5rem auto 10rem;
+    span {
+        display: block;
+    }
     a {
         font-size: 4.8rem;
-        display: block;
         text-decoration: underline;
         font-weight: 700;
         margin: 2rem 0;

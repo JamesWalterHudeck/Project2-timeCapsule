@@ -724,9 +724,12 @@ a:hover {
   margin: 5rem auto 10rem;
 }
 
+#saveOrSeel span {
+  display: block;
+}
+
 #saveOrSeel a {
   font-size: 4.8rem;
-  display: block;
   text-decoration: underline;
   font-weight: 700;
   margin: 2rem 0;

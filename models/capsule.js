@@ -11,8 +11,8 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.TIME,
         },
         openTime: {
-            type: DataTypes.STRING,
-            allowNull: true,
+            type: DataTypes.TIME,
+            allowNull: false,
         },
         capsuleCode: {
             type: DataTypes.STRING,
