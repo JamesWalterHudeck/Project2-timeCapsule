@@ -42,7 +42,7 @@ module.exports = function(app) {
                 CapsuleId: 1,
             };
             const dbPoster = await db.Movies.create(newMovie);
-            res.redirect("/capsuleBuilder");
+            res.redirect("/capsuleBuilder?upload=success");
         } catch (error) {
             next(error);
         }

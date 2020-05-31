@@ -14,7 +14,7 @@ const uploadFiles = async(req, res, next) => {
                 path.join(__dirname, "../uploads/" + req.file.filename)
             ),
         }).then((image) => {
-            return res.send(`File has been uploaded.`);
+            return res.redirect("/capsuleBuilder?upload=success");
         });
     } catch (error) {
         return res.send(`Error when trying upload images: ${error}`);

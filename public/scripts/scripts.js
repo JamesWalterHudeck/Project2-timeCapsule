@@ -5,6 +5,15 @@ $(document).ready(function() {
             sideBySide: true
         });
     });
+    var url = window.location.href;
+
+    if (url == "http://localhost:8080/capsuleBuilder?upload=success") {
+        alert("Upload Sucessful")
+    }
+
+    $('#seelCapsule').on('click', function() {
+        alert('Your capsule has been locked!');
+    });
 
     // New User
     var userEmail = $("input#userEmail");
